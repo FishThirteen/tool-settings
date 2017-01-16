@@ -5,6 +5,7 @@
 "hi Cursorline cterm=NONE ctermbg=lightyellow ctermfg=black guibg=darkred guifg=white
 
 set history=200         "set command history
+set directory=$HOME/.cache/vim//  "设置 swp 文件所在的位置
 set showmatch           " 设置匹配模式，显示匹配的括号
 set linebreak           " 整词换行
 "set whichwrap=b,s,<,>,[,] " 光标从行首和行末时可以跳到另一行去
@@ -65,6 +66,7 @@ Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 
 Plug 'tpope/vim-surround'
+Plug 'FishThirteen/fish-snippets'
 call plug#end()
 
 
