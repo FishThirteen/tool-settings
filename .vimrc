@@ -45,6 +45,7 @@ autocmd FileType xml setlocal sw=2 ts=2 sts=2
 "-- Java --
 autocmd FileType java setlocal sw=4 ts=4 sts=4
 
+<<<<<<< HEAD
 ".vimrc
 map <c-f> :call JsBeautify()<cr>
 autocmd FileType javascript noremap <buffer>  <c-f> :call JsBeautify()<cr>
@@ -52,6 +53,8 @@ autocmd FileType json noremap <buffer> <c-f> :call JsonBeautify()<cr>
 autocmd FileType jsx noremap <buffer> <c-f> :call JsxBeautify()<cr>
 autocmd FileType html noremap <buffer> <c-f> :call HtmlBeautify()<cr>
 autocmd FileType css noremap <buffer> <c-f> :call CSSBeautify()<cr>
+=======
+>>>>>>> 3a55b4e2732634c0f696c3ff664cc759e46cf061
 
 
 
@@ -60,6 +63,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/syntastic'
 Plug 'shougo/unite.vim',
+<<<<<<< HEAD
+=======
+Plug 'pangloss/vim-javascript'
+>>>>>>> 3a55b4e2732634c0f696c3ff664cc759e46cf061
 
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
@@ -70,6 +77,7 @@ Plug 'valloric/youcompleteme'
 Plug 'easymotion/vim-easymotion'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
+<<<<<<< HEAD
 Plug 'FishThirteen/fish-snippets'
 
 Plug 'tpope/vim-surround'
@@ -78,6 +86,11 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'skywind3000/asyncrun.vim'
+=======
+
+Plug 'tpope/vim-surround'
+Plug 'FishThirteen/fish-snippets'
+>>>>>>> 3a55b4e2732634c0f696c3ff664cc759e46cf061
 call plug#end()
 
 
@@ -86,7 +99,11 @@ filetype on
 filetype plugin on
 syntax on
 
+<<<<<<< HEAD
 " colorscheme solarized
+=======
+"colorscheme solarized
+>>>>>>> 3a55b4e2732634c0f696c3ff664cc759e46cf061
 set background=dark
 
 set pastetoggle=<F2>
@@ -185,5 +202,8 @@ if filereadable(s:configFileName)
     let g:syntastic_java_javac_config_file = s:configFileName
 endif
 
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 3a55b4e2732634c0f696c3ff664cc759e46cf061
