@@ -22,6 +22,7 @@ set ruler
 set showcmd             "命令行显示输入的命令
 set showmode            "命令行显示vim当前模式
 
+set ignorecase          "搜索模式忽略大小写
 set smartcase           "如果搜索模式包含大写字符，不使用 'ignorecase' 选项。只有在输入搜索模式并且打开 'ignorecase' 选项时才会使用。
 set incsearch           "highlight the next search match
 
@@ -46,11 +47,16 @@ autocmd FileType xml setlocal sw=2 ts=2 sts=2
 autocmd FileType java setlocal sw=4 ts=4 sts=4
 
 
+"-- Haskell
+au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
+au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+
+
 "call plug#begin('~/.config/nvim/plugged') -- for nvim
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-dispatch'
 Plug 'scrooloose/syntastic'
-Plug 'shougo/unite.vim',
+Plug 'shougo/unite.vim'
 
 Plug 'scrooloose/nerdtree'
 Plug 'majutsushi/tagbar'
@@ -69,6 +75,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'skywind3000/asyncrun.vim'
+Plug 'bitc/vim-hdevtools'
 call plug#end()
 
 
@@ -77,7 +84,7 @@ filetype on
 filetype plugin on
 syntax on
 
-"colorscheme solarized
+colorscheme solarized
 set background=dark
 
 set pastetoggle=<F2>
