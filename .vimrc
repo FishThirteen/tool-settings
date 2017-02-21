@@ -4,7 +4,11 @@
 "set cursorline
 "hi Cursorline cterm=NONE ctermbg=lightyellow ctermfg=black guibg=darkred guifg=white
 
-set history=200         "set command history
+" Necessary for cool features of vim
+set nocompatible         
+set history=9999        "set command history
+set undolevels=9999
+
 set directory=$HOME/.cache/vim//  "设置 swp 文件所在的位置
 set showmatch           " 设置匹配模式，显示匹配的括号
 set linebreak           " 整词换行
@@ -15,8 +19,7 @@ set number              "显示行号
 
 "-- 状态行设置 --
 set laststatus=2        "总显示最后一个窗口的状态行；设为1则窗口数多于一个的时候显示最后一个窗口的状态行；0不显示最后一个窗口的状态行
-set ruler
-"标尺，用于显示光标位置的行号和列号，逗号分隔。每个窗口都有自己的标尺。如果窗口有状态行，标尺在那里显示。否则，它显示在屏幕的最后一行上。 
+set ruler               "标尺，用于显示光标位置的行号和列号，逗号分隔。每个窗口都有自己的标尺。如果窗口有状态行，标尺在那里显示。否则，它显示在屏幕的最后一行上。 
 
 "-- 命令行设置 --
 set showcmd             "命令行显示输入的命令
@@ -24,9 +27,11 @@ set showmode            "命令行显示vim当前模式
 
 set ignorecase          "搜索模式忽略大小写
 set smartcase           "如果搜索模式包含大写字符，不使用 'ignorecase' 选项。只有在输入搜索模式并且打开 'ignorecase' 选项时才会使用。
+set hlsearch
 set incsearch           "highlight the next search match
 
 "-- tab和缩进的设置 --
+set smarttab
 set expandtab           "tab -> space
 set tabstop=4           "设置制表符(tab键)的宽度
 set shiftwidth=4        "(自动) 缩进使用的4个空格
@@ -50,6 +55,16 @@ autocmd FileType java setlocal sw=4 ts=4 sts=4
 "-- Haskell
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
 au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
+
+" Vim-plug
+" Automatic installaion of vim-plug
+" if empty(glob('~/.vim/autoload/plug.vim'))
+"   silent !mkdir -p ~/.vim/autoload
+"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"   autocmd VimEnter * PlugInstall
+" endif
+
 
 
 "call plug#begin('~/.config/nvim/plugged') -- for nvim
@@ -86,6 +101,7 @@ syntax on
 
 colorscheme solarized
 set background=dark
+set t_Co=256
 
 set pastetoggle=<F2>
 
@@ -97,8 +113,6 @@ map <C-n> :NERDTreeToggle<CR>
 
 "-- snippets
 let g:UltiSnipsExpandTrigger="<c-a>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 
