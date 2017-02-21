@@ -99,6 +99,7 @@ map <C-n> :NERDTreeToggle<CR>
 let g:UltiSnipsExpandTrigger="<c-a>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 
 " To do the first type of search, hit 'CTRL-\', followed by one of the
