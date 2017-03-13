@@ -58,12 +58,12 @@ au FileType haskell nnoremap <buffer> <silent> <F2> :HdevtoolsClear<CR>
 
 " Vim-plug
 " Automatic installaion of vim-plug
-" if empty(glob('~/.vim/autoload/plug.vim'))
-"   silent !mkdir -p ~/.vim/autoload
-"   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
-"     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-"   autocmd VimEnter * PlugInstall
-" endif
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !mkdir -p ~/.vim/autoload
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall
+endif
 
 
 
@@ -91,17 +91,36 @@ Plug 'pangloss/vim-javascript'
 Plug 'maksimr/vim-jsbeautify'
 Plug 'skywind3000/asyncrun.vim'
 Plug 'bitc/vim-hdevtools'
+Plug 'OrangeT/vim-csharp'
+
+" for webdev
+Plug 'maksimr/vim-jsbeautify'
+Plug 'mattn/emmet-vim'
 call plug#end()
 
+"-- AsyncRun
+augroup MyGroup
+    autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
+augroup END
+noremap <F9> :call asyncrun#quickfix_toggle(8)<cr>
+
+"-- for CtrlP plugin
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+let g:ctrlp_custom_ignore = {
+	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+	\ 'file': '\v\.(exe|so|dll)$',
+	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+	\ }
 
 "--detect file type--
 filetype on
 filetype plugin on
 syntax on
 
-colorscheme solarized
+set t_Co=16
+let g:solarized_termcolors=256
 set background=dark
-set t_Co=256
+colorscheme solarized
 
 set pastetoggle=<F2>
 
@@ -171,6 +190,7 @@ let g:vimwiki_list=[{'path': '/data/YYT/VimWiki/personal',
     \{'path': '/data/YYT/VimWiki/public/reading',
     \'path_html': '/data/YYT/VimWiki/public/html/reading',
     \'html_header': '/data/YYT/VimWiki/template/header.tpl', }]
+
 
 
 "-- Read syntastic setting file to work with gradle
