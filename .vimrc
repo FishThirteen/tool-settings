@@ -37,20 +37,33 @@ set tabstop=4           "设置制表符(tab键)的宽度
 set shiftwidth=4        "(自动) 缩进使用的4个空格
 set softtabstop=4       "设置制表符(tab)在编辑时占用4个空格
 "set autoindent          "设置自动对齐(缩进)：即每行的缩进值与上一行相等；使用 noautoindent 取消设置
-
-"--Special key --
 set backspace=indent,eol,start
 
-"-- 对javascript语言的设置 --
-autocmd FileType javascript setlocal sw=2 ts=2 sts=2
-autocmd FileType json setlocal sw=2 ts=2 sts=2
+
+"-- key binding --
+"-- command line use emaces key --
+cnoremap <C-a> <Home>
+cnoremap <C-e> <End>
+cnoremap <C-p> <Up>
+cnoremap <C-n> <Down>
+cnoremap <C-b> <Left>
+cnoremap <C-f> <Right>
+cnoremap <M-b> <S-Left>
+cnoremap <M-f> <S-Right>
+
+
+
+
+"-- 对 web 语言的设置 --
+autocmd FileType vue,javascript,html,css,json setlocal sw=2 ts=2 sts=2
+autocmd FileType vue.html.javascript.css setlocal sw=2 ts=2 sts=2
+
 
 "-- xml
 autocmd FileType xml setlocal sw=2 ts=2 sts=2
 
 "-- Java --
 autocmd FileType java setlocal sw=4 ts=4 sts=4
-
 
 "-- Haskell
 au FileType haskell nnoremap <buffer> <F1> :HdevtoolsType<CR>
@@ -96,9 +109,12 @@ Plug 'OrangeT/vim-csharp'
 " for webdev
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mattn/emmet-vim'
+Plug 'matchit.zip'
+Plug 'posva/vim-vue'
 call plug#end()
 
 "-- AsyncRun
+nnoremap <leader>a :AsyncRun 
 augroup MyGroup
     autocmd User AsyncRunStart call asyncrun#quickfix_toggle(8, 1)
 augroup END
@@ -107,10 +123,13 @@ noremap <F9> :call asyncrun#quickfix_toggle(8)<cr>
 "-- for CtrlP plugin
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip
 let g:ctrlp_custom_ignore = {
-	\ 'dir':  '\v[\/]\.(git|hg|svn)$',
+	\ 'dir':  '\v[\/](\.(git|hg|svn)|node_modules)$',
 	\ 'file': '\v\.(exe|so|dll)$',
 	\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
 	\ }
+nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>t :tabnew<CR>:CtrlP<CR>
+
 
 "--detect file type--
 filetype on
