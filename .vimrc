@@ -1,6 +1,4 @@
 " If using a dark background within the editing area and syntax highlighting
-" turn on this option as well
-
 "set cursorline
 "hi Cursorline cterm=NONE ctermbg=lightyellow ctermfg=black guibg=darkred guifg=white
 
@@ -50,12 +48,13 @@ cnoremap <C-b> <Left>
 cnoremap <C-f> <Right>
 cnoremap <M-b> <S-Left>
 cnoremap <M-f> <S-Right>
-
-
+"-- copy paste from system clipboard --
+vnoremap <C-c> "+y
+inoremap <C-v> <esc>"+p
 
 
 "-- 对 web 语言的设置 --
-autocmd FileType vue,javascript,html,css,json setlocal sw=2 ts=2 sts=2
+autocmd FileType yaml,vue,javascript,html,css,json setlocal sw=2 ts=2 sts=2
 autocmd FileType vue.html.javascript.css setlocal sw=2 ts=2 sts=2
 
 
@@ -93,6 +92,8 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'bling/vim-airline'
 Plug 'valloric/youcompleteme'
 Plug 'easymotion/vim-easymotion'
+
+"snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'FishThirteen/fish-snippets'
@@ -111,6 +112,7 @@ Plug 'maksimr/vim-jsbeautify'
 Plug 'mattn/emmet-vim'
 Plug 'matchit.zip'
 Plug 'posva/vim-vue'
+Plug 'hail2u/vim-css3-syntax'
 call plug#end()
 
 "-- AsyncRun
@@ -129,6 +131,7 @@ let g:ctrlp_custom_ignore = {
 	\ }
 nnoremap <leader>b :CtrlPBuffer<CR>
 nnoremap <leader>t :tabnew<CR>:CtrlP<CR>
+
 
 
 "--detect file type--
@@ -151,6 +154,8 @@ map <C-n> :NERDTreeToggle<CR>
 
 "-- snippets
 let g:UltiSnipsExpandTrigger="<c-a>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 
 
@@ -210,7 +215,8 @@ let g:vimwiki_list=[{'path': '/data/YYT/VimWiki/personal',
     \'path_html': '/data/YYT/VimWiki/public/html/reading',
     \'html_header': '/data/YYT/VimWiki/template/header.tpl', }]
 
-
+"-- syntastic settings
+let g:syntastic_python_python_exec='python3'
 
 "-- Read syntastic setting file to work with gradle
 function s:findAbsoluteNameInParentRecursively(fileName) 

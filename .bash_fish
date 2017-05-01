@@ -1,0 +1,7 @@
+export SWT_GTK3=0
+
+# python virtualenv 配置
+export WORKON_HOME=~/.config/virtualenv
+
+# alias
+alias ll='ls -alhF --time-style="+%F %T" --color=auto'
