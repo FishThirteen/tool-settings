@@ -51,10 +51,11 @@ cnoremap <M-f> <S-Right>
 "-- copy paste from system clipboard --
 vnoremap <C-c> "+y
 inoremap <C-v> <esc>"+p
-
+"-- use W key to save with root permission
+command W :execute ':silent w !sudo tee % > /dev/null' | :edit!
 
 "-- 对 web 语言的设置 --
-autocmd FileType yaml,vue,javascript,html,css,json setlocal sw=2 ts=2 sts=2
+autocmd FileType yaml,vue,javascript,html,css,json,stylus setlocal sw=2 ts=2 sts=2
 autocmd FileType vue.html.javascript.css setlocal sw=2 ts=2 sts=2
 
 
@@ -76,8 +77,6 @@ if empty(glob('~/.vim/autoload/plug.vim'))
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
   autocmd VimEnter * PlugInstall
 endif
-
-
 
 "call plug#begin('~/.config/nvim/plugged') -- for nvim
 call plug#begin('~/.vim/plugged')
@@ -107,12 +106,15 @@ Plug 'skywind3000/asyncrun.vim'
 Plug 'bitc/vim-hdevtools'
 Plug 'OrangeT/vim-csharp'
 
+Plug 'Chiel92/vim-autoformat'
+
 " for webdev
 Plug 'maksimr/vim-jsbeautify'
 Plug 'mattn/emmet-vim'
 Plug 'matchit.zip'
 Plug 'posva/vim-vue'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'wavded/vim-stylus'
 call plug#end()
 
 "-- AsyncRun
