@@ -31,9 +31,9 @@ set incsearch           "highlight the next search match
 "-- tab和缩进的设置 --
 set smarttab
 set expandtab           "tab -> space
-set tabstop=4           "设置制表符(tab键)的宽度
-set shiftwidth=4        "(自动) 缩进使用的4个空格
-set softtabstop=4       "设置制表符(tab)在编辑时占用4个空格
+set tabstop=2           "设置制表符(tab键)的宽度
+set shiftwidth=2        "(自动) 缩进使用的4个空格
+set softtabstop=2       "设置制表符(tab)在编辑时占用4个空格
 "set autoindent          "设置自动对齐(缩进)：即每行的缩进值与上一行相等；使用 noautoindent 取消设置
 set backspace=indent,eol,start
 
