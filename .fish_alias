@@ -3,4 +3,6 @@
 # Apple MAC
 alias ll="ls -alhT"
 
+# Linux
+alias ll='ls -alhF --time-style="+%F %T" --color=auto'
 
