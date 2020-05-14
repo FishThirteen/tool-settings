@@ -7,7 +7,7 @@ set nocompatible
 set history=9999        "set command history
 set undolevels=9999
 
-set directory=$HOME/.cache/vim//  "设置 swp 文件所在的位置
+set directory=$HOME/.cache/vim/  "设置 swp 文件所在的位置
 set showmatch           " 设置匹配模式，显示匹配的括号
 set linebreak           " 整词换行
 "set whichwrap=b,s,<,>,[,] " 光标从行首和行末时可以跳到另一行去
